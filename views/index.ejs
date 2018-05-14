@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homepage fb</title>
+</head>
+<body>
+    <h1>Dojo Message Board</h1>
+    <form action="/process" method="POST">
+        <p>Name: <input type="text" name="name"></p>
+        <p>Message: <input type="text" name="message" id=""></p>
+        <p><input type="submit" value="obey"></p>
+    </form>
+    <h2>Codejoy</h2>
+
+    <% for (var z = 0; z < codejoy.length; z++){ %>
+    <p><%= codejoy[z].message %></p>
+    <p> - <%= codejoy[z].name %></p>
+    <p> <%= codejoy[z]._id %></p>
+    <p> <%= codejoy[z].comments %> </p>
+    <form action="/comment/<%= codejoy[z]._id %>" method ="POST">
+        Name: <input type="text" name="name">
+        Comment: <input type="text" name="comment">
+        <input type="submit" value="obey">
+    </form>
+    <% } %>
+    <!-- I probably need to pass the message id into the url in order to attach the comment to that message in the db.  I need to push the comments to the messages comments array-->
+    
+</body>
+</html>
